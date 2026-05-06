@@ -90,6 +90,7 @@
       background: #1e1e1e;
       border-radius: 12px;
       overflow: hidden;
+      cursor: pointer;
       transition: 0.4s;
     }
 
@@ -155,6 +156,31 @@
       padding: 15px;
       border-radius: 50%;
     }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
   </style>
 </head>
 
@@ -187,37 +213,37 @@
 
   <div class="grid">
 
-    <div class="card">
+    <div class="card" onclick="openLightbox(this)">
       <img src="3-Seater Sofa.jpeg">
       <div class="card-body">3-Seater Sofa</div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openLightbox(this)">
       <img src="modern bed.jpg">
       <div class="card-body">Modern Bed</div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openLightbox(this)">
       <img src="wardrobe.jpeg">
       <div class="card-body">Wardrobe</div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openLightbox(this)">
       <img src="executive office table.jpg">
       <div class="card-body">Executive Office Table</div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openLightbox(this)">
       <img src="custom kitchen cabinet.jpg">
       <div class="card-body">Custom Kitchen Cabinet</div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openLightbox(this)">
       <img src="reception design.jpeg">
       <div class="card-body">Reception Design</div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openLightbox(this)">
       <img src="dressing mirror.jpg">
       <div class="card-body">Dressing Mirror</div>
     </div>
@@ -227,18 +253,12 @@
 
 <section id="about" class="about">
   <h2>About Us</h2>
-  <p>
-    With over 12 years of experience, Olatunji Furniture specializes in crafting durable, stylish and custom-made furniture tailored to your needs.
-    Based in Mushin, Lagos, we pride ourselves on quality workmanship and customer satisfaction.
-  </p>
+  <p>With over 12 years of experience, Olatunji Furniture specializes in crafting durable, stylish and custom-made furniture tailored to your needs.</p>
 </section>
 
 <section id="services" class="about">
   <h2>What We Do</h2>
-  <p>
-    We design and build premium furniture for homes and offices. From custom sofas, beds, and wardrobes to full interior furnishing and kitchen installations,
-    we bring your ideas to life. Whether you're upgrading your space or starting fresh, we deliver quality, durability, and clean finishing every time.
-  </p>
+  <p>We design and build premium furniture for homes and offices, including custom sofas, beds, wardrobes, and kitchen installations.</p>
 </section>
 
 <section id="custom">
@@ -266,6 +286,11 @@
 
 <a href="https://wa.me/2348083003528" class="whatsapp">💬</a>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
 <script>
 function sendToWhatsApp() {
   let name = document.getElementById('name').value;
@@ -278,6 +303,16 @@ function sendToWhatsApp() {
     + "%0aMessage: " + encodeURIComponent(message);
 
   window.open(url, '_blank');
+}
+
+function openLightbox(card) {
+  let img = card.querySelector("img").src;
+  document.getElementById("lightbox-img").src = img;
+  document.getElementById("lightbox").classList.add("active");
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("active");
 }
 </script>
 
