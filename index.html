@@ -29,23 +29,14 @@
       color: white;
     }
 
-    .logo img {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-    }
+    .logo img { width: 45px; height: 45px; border-radius: 50%; }
 
     .logo h1 {
       font-family: 'Playfair Display', serif;
       font-size: 22px;
     }
 
-    nav a {
-      color: #ccc;
-      margin-left: 20px;
-      text-decoration: none;
-    }
-
+    nav a { color: #ccc; margin-left: 20px; text-decoration: none; }
     nav a:hover { color: #c89b3c; }
 
     .hero {
@@ -74,11 +65,7 @@
     }
 
     section { padding: 60px 30px; }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+    h2 { text-align: center; margin-bottom: 30px; }
 
     .grid {
       display: grid;
@@ -94,9 +81,7 @@
       transition: 0.4s;
     }
 
-    .card:hover {
-      transform: translateY(-10px) scale(1.03);
-    }
+    .card:hover { transform: translateY(-10px) scale(1.03); }
 
     .card img {
       width: 100%;
@@ -164,7 +149,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.95);
       display: none;
       justify-content: center;
       align-items: center;
@@ -173,13 +158,25 @@
 
     .lightbox img {
       max-width: 90%;
-      max-height: 90%;
+      max-height: 85%;
       border-radius: 10px;
     }
 
-    .lightbox.active {
-      display: flex;
+    .lightbox.active { display: flex; }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+      user-select: none;
     }
+
+    .prev { left: 20px; }
+    .next { right: 20px; }
 
   </style>
 </head>
@@ -213,62 +210,30 @@
 
   <div class="grid">
 
-    <div class="card" onclick="openLightbox(this)">
-      <img src="3-Seater Sofa.jpeg">
-      <div class="card-body">3-Seater Sofa</div>
-    </div>
-
-    <div class="card" onclick="openLightbox(this)">
-      <img src="modern bed.jpg">
-      <div class="card-body">Modern Bed</div>
-    </div>
-
-    <div class="card" onclick="openLightbox(this)">
-      <img src="wardrobe.jpeg">
-      <div class="card-body">Wardrobe</div>
-    </div>
-
-    <div class="card" onclick="openLightbox(this)">
-      <img src="executive office table.jpg">
-      <div class="card-body">Executive Office Table</div>
-    </div>
-
-    <div class="card" onclick="openLightbox(this)">
-      <img src="custom kitchen cabinet.jpg">
-      <div class="card-body">Custom Kitchen Cabinet</div>
-    </div>
-
-    <div class="card" onclick="openLightbox(this)">
-      <img src="reception design.jpeg">
-      <div class="card-body">Reception Design</div>
-    </div>
-
-    <div class="card" onclick="openLightbox(this)">
-      <img src="dressing mirror.jpg">
-      <div class="card-body">Dressing Mirror</div>
-    </div>
+    <div class="card" onclick="openLightbox(0)"><img src="3-Seater Sofa.jpeg"><div class="card-body">3-Seater Sofa</div></div>
+    <div class="card" onclick="openLightbox(1)"><img src="modern bed.jpg"><div class="card-body">Modern Bed</div></div>
+    <div class="card" onclick="openLightbox(2)"><img src="wardrobe.jpeg"><div class="card-body">Wardrobe</div></div>
+    <div class="card" onclick="openLightbox(3)"><img src="executive office table.jpg"><div class="card-body">Executive Office Table</div></div>
+    <div class="card" onclick="openLightbox(4)"><img src="custom kitchen cabinet.jpg"><div class="card-body">Custom Kitchen Cabinet</div></div>
+    <div class="card" onclick="openLightbox(5)"><img src="reception design.jpeg"><div class="card-body">Reception Design</div></div>
+    <div class="card" onclick="openLightbox(6)"><img src="dressing mirror.jpg"><div class="card-body">Dressing Mirror</div></div>
 
   </div>
 </section>
 
-<section id="about" class="about">
-  <h2>About Us</h2>
-  <p>With over 12 years of experience, Olatunji Furniture specializes in crafting durable, stylish and custom-made furniture tailored to your needs.</p>
-</section>
-
 <section id="services" class="about">
   <h2>What We Do</h2>
-  <p>We design and build premium furniture for homes and offices, including custom sofas, beds, wardrobes, and kitchen installations.</p>
+  <p>
+    We design and build premium furniture for homes and offices. From custom sofas, beds, and wardrobes to full interior furnishing and kitchen installations, we bring your ideas to life. Whether you're upgrading your space or starting fresh, we deliver quality, durability, and clean finishing every time.
+  </p>
 </section>
 
 <section id="custom">
   <h2>Request Custom Design</h2>
-
   <div class="form-container">
     <input type="text" id="name" placeholder="Your Name">
     <input type="text" id="phone" placeholder="Phone Number">
     <textarea id="message" rows="5" placeholder="Describe what you want..."></textarea>
-
     <button class="btn" onclick="sendToWhatsApp()">Send to WhatsApp</button>
   </div>
 </section>
@@ -287,11 +252,51 @@
 <a href="https://wa.me/2348083003528" class="whatsapp">💬</a>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<div class="lightbox" id="lightbox">
+  <span class="nav-btn prev" onclick="prevImage()">❮</span>
   <img id="lightbox-img">
+  <span class="nav-btn next" onclick="nextImage()">❯</span>
 </div>
 
 <script>
+let images = [
+  "3-Seater Sofa.jpeg",
+  "modern bed.jpg",
+  "wardrobe.jpeg",
+  "executive office table.jpg",
+  "custom kitchen cabinet.jpg",
+  "reception design.jpeg",
+  "dressing mirror.jpg"
+];
+
+let currentIndex = 0;
+
+function openLightbox(index) {
+  currentIndex = index;
+  document.getElementById("lightbox").classList.add("active");
+  showImage();
+}
+
+function showImage() {
+  document.getElementById("lightbox-img").src = images[currentIndex];
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage();
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage();
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "ArrowRight") nextImage();
+  if (e.key === "ArrowLeft") prevImage();
+  if (e.key === "Escape") document.getElementById("lightbox").classList.remove("active");
+});
+
 function sendToWhatsApp() {
   let name = document.getElementById('name').value;
   let phone = document.getElementById('phone').value;
@@ -303,16 +308,6 @@ function sendToWhatsApp() {
     + "%0aMessage: " + encodeURIComponent(message);
 
   window.open(url, '_blank');
-}
-
-function openLightbox(card) {
-  let img = card.querySelector("img").src;
-  document.getElementById("lightbox-img").src = img;
-  document.getElementById("lightbox").classList.add("active");
-}
-
-function closeLightbox() {
-  document.getElementById("lightbox").classList.remove("active");
 }
 </script>
 
