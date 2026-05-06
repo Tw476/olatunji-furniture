@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olatunji Furniture</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&family=Montserrat:wght@400;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #121212; color: #eee; }
+
+    header {
+      background: #0a0a0a;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+
+    .logo h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+    }
+
+    nav a {
+      color: #ccc;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover { color: #c89b3c; }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+      url('https://images.unsplash.com/photo-1505691938895-1758d7feb511') center/cover no-repeat;
+      height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .btn {
+      background: #c89b3c;
+      padding: 12px 25px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      margin-top: 15px;
+    }
+
+    section { padding: 60px 30px; }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 10px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .about {
+      background: #181818;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      font-family: 'Lora', serif;
+      line-height: 1.7;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: #2a2a2a;
+      border: none;
+      color: #fff;
+      border-radius: 6px;
+    }
+
+    #contact p {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    footer {
+      background: #0a0a0a;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      padding: 15px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="#home" class="logo">
+    <img src="logo.png">
+    <h1>Olatunji Furniture</h1>
+  </a>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#services">What We Do</a>
+    <a href="#custom">Custom</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h2>Premium Furniture Crafted for Your Space</h2>
+  <p>12+ Years of Quality Craftsmanship</p>
+  <a href="#products" class="btn">View Products</a>
+</section>
+
+<section id="products">
+  <h2>Our Work</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="3-Seater Sofa.jpeg">
+      <div class="card-body">3-Seater Sofa</div>
+    </div>
+
+    <div class="card">
+      <img src="modern bed.jpg">
+      <div class="card-body">Modern Bed</div>
+    </div>
+
+    <div class="card">
+      <img src="wardrobe.jpeg">
+      <div class="card-body">Wardrobe</div>
+    </div>
+
+    <div class="card">
+      <img src="executive office table.jpg">
+      <div class="card-body">Executive Office Table</div>
+    </div>
+
+    <div class="card">
+      <img src="custom kitchen cabinet.jpg">
+      <div class="card-body">Custom Kitchen Cabinet</div>
+    </div>
+
+    <div class="card">
+      <img src="reception design.jpeg">
+      <div class="card-body">Reception Design</div>
+    </div>
+
+    <div class="card">
+      <img src="dressing mirror.jpg">
+      <div class="card-body">Dressing Mirror</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2>About Us</h2>
+  <p>
+    With over 12 years of experience, Olatunji Furniture specializes in crafting durable, stylish and custom-made furniture tailored to your needs.
+    Based in Mushin, Lagos, we pride ourselves on quality workmanship and customer satisfaction.
+  </p>
+</section>
+
+<section id="services" class="about">
+  <h2>What We Do</h2>
+  <p>
+    We design and build premium furniture for homes and offices. From custom sofas, beds, and wardrobes to full interior furnishing and kitchen installations,
+    we bring your ideas to life. Whether you're upgrading your space or starting fresh, we deliver quality, durability, and clean finishing every time.
+  </p>
+</section>
+
+<section id="custom">
+  <h2>Request Custom Design</h2>
+
+  <div class="form-container">
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="text" id="phone" placeholder="Phone Number">
+    <textarea id="message" rows="5" placeholder="Describe what you want..."></textarea>
+
+    <button class="btn" onclick="sendToWhatsApp()">Send to WhatsApp</button>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Phone: +234 808 300 3528</p>
+  <p>Email: Olatunjihammmed12@gmail.com</p>
+  <p>Mushin, Lagos, Nigeria</p>
+</section>
+
+<footer>
+  <p>© 2026 Olatunji Furniture</p>
+</footer>
+
+<a href="https://wa.me/2348083003528" class="whatsapp">💬</a>
+
+<script>
+function sendToWhatsApp() {
+  let name = document.getElementById('name').value;
+  let phone = document.getElementById('phone').value;
+  let message = document.getElementById('message').value;
+
+  let url = "https://wa.me/2348083003528?text="
+    + "Name: " + encodeURIComponent(name)
+    + "%0aPhone: " + encodeURIComponent(phone)
+    + "%0aMessage: " + encodeURIComponent(message);
+
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
